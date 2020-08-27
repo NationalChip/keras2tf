@@ -1,0 +1,15 @@
+CORENAME: GRUS # 芯片型号
+PB_FILE: model.pb # 输入的pb文件
+OUTPUT_FILE: test.h # 输出的NPU文件名
+NPU_UNIT: NPU32 # NPU设备类型
+COMPRESS: true # 压缩模型
+OUTPUT_TYPE: c_code # NPU文件的类型
+INPUT_OPS:
+    input_1: [1, 1, 50]
+    State_h0: [1, 80]
+    State_c0: [1, 80]
+    State_h1: [1, 30]
+    State_c1: [1, 30]
+OUTPUT_OPS: [State_c0_out, State_h0_out, State_c1_out, State_h1_out, dense]
+FP16_OUT_OPS: [State_c0_out, State_h0_out, State_c1_out, State_h1_out]
+

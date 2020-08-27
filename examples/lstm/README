@@ -1,6 +1,10 @@
-需要注意推理模型的dropout需要去掉。
+需要注意:
+1. 推理模型的dropout需要去掉。
+2. npu_copmiler需要更新到1.5.2rc2版本或以上：`pip install npu_compiler==1.5.2rc2`
+3. LSTM模型需要在配置文件的输入和输出OP中配置State节点，参考`config.yaml`。
 
 运行步骤：
 1. 运行`python gen_model.py`，生成`model.h5`模型文件。
 2. 运行`python main.py`，把`model.h5`转出`model.pb`文件。
+3. 运行`gxnpuc config.yaml`，使用NPU编译器编译出模型文件`test.h`。
 
